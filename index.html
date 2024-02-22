@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday countdown</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+    
+<body style="background-color: black;"><div class="total"><div class="half"><div class="wrapper"><span class="first-text">Hey!</span>
+                
+        <ul class="sec-texts"><li><span>Divya</span></li>
+            <li><span>  Advance</span></li><li><span>  Happy</span></li><li><span>  Birthday</span></li></ul></div>
+        <div class="container">
+            <div class="days-c">
+            <p class="count-el d" id="days">0</p>
+        <span class="span day">days</span>
+        </div>
+        
+        <div class="hours-c">
+    
+            <p class="count-el h" id="hours">0</p>
+            <span class="span hour">hours</span>
+        
+        </div>
+        <div class="minutes-c">
+    
+            <p class="count-el m" id="minutes">0</p>
+            <span class="span minute">minutes</span></div>
+    
+        <div class="seconds-c">
+        
+            <p  class="count-el s" id="seconds">0</p>
+            <span class="span seconds">seconds</span>    
+    
+        </div></div></div>
+            <div class="poster">
+                <img class="motivation-img" src="img/bday.avif">
+              
+            </div>
+       
+    
+   
+    </div>
+        <script>
+        const BirthdayDate='13 Nov 2024';
+        function countdown(){
+            const birthdayDate=new Date(BirthdayDate); 
+            const currentDate=new Date();
+            const totalSeconds=(birthdayDate-currentDate)/1000;
+        
+            const days=Math.floor(totalSeconds/3600/24);
+            const hours=Math.floor(totalSeconds/3600)%24;
+            const minutes=Math.floor(totalSeconds/60)%60;
+            const seconds=Math.floor(totalSeconds)%60;
+            console.log(days,hours,minutes,seconds)
+           
+        document.getElementById('days').innerHTML= formatTime(days);
+        document.getElementById("hours").innerHTML= formatTime(hours);
+        document.getElementById("minutes").innerHTML=formatTime(minutes);
+        document.getElementById("seconds").innerHTML=formatTime(seconds);
+        }
+        countdown();
+        setInterval(countdown,1000);
+        function formatTime(time){
+            return time<10?(`0${time}`):time;
+        }
+        </script>
+</body>
+</html>
